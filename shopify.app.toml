@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "08cf4da352007849224a6eaca315b4b9"
+name = "qr-code-generator"
+application_url = "https://symphony-sbjct-felt-modems.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "test-webential-store.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://symphony-sbjct-felt-modems.trycloudflare.com/auth/callback",
+  "https://symphony-sbjct-felt-modems.trycloudflare.com/auth/shopify/callback",
+  "https://symphony-sbjct-felt-modems.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
