@@ -2,7 +2,7 @@
 
 client_id = "08cf4da352007849224a6eaca315b4b9"
 name = "qr-code-generator"
-application_url = "https://symphony-sbjct-felt-modems.trycloudflare.com"
+application_url = "https://pr-send-retail-herself.trycloudflare.com"
 embedded = true
 
 [build]
@@ -12,13 +12,13 @@ include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://symphony-sbjct-felt-modems.trycloudflare.com/auth/callback",
-  "https://symphony-sbjct-felt-modems.trycloudflare.com/auth/shopify/callback",
-  "https://symphony-sbjct-felt-modems.trycloudflare.com/api/auth/callback"
+  "https://pr-send-retail-herself.trycloudflare.com/auth/callback",
+  "https://pr-send-retail-herself.trycloudflare.com/auth/shopify/callback",
+  "https://pr-send-retail-herself.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
