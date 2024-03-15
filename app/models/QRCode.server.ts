@@ -51,19 +51,18 @@ export async function getQRCodes(shop: string, graphql: any): Promise<QRCode[]> 
 
 // Function to get the QRCode image data URL
 export function getQRCodeImage(id: number|string): Promise<string> {
-  const url = new URL(`/qrcodes/${id}/scan`, process.env.SHOPIFY_APP_URL!);
+  const url = new URL(`qrcode/${id}/scan`, process.env.SHOPIFY_APP_URL!);
   return qrcode.toDataURL(url.href);
 }
 
 // Function to get the destination URL based on QRCode destination
 export function getDestinationUrl(qrCode: QRCode): string {
-  return `https://${qrCode.shop}/products/${qrCode.productHandle}`; //please remove
   
   if (qrCode.destination === "product") {
     return `https://${qrCode.shop}/products/${qrCode.productHandle}`;
   }
 
-  const match = /gid:\/\/shopify\/ProductVariant\/([0-9]+)/.exec(qrCode.productVariantId);
+  const match:any = /gid:\/\/shopify\/ProductVariant\/([0-9]+)/.exec(qrCode.productVariantId);
   // invariant(match, "Unrecognized product variant ID");
 
   return `https://${qrCode.shop}/cart/${match[1]}:1`;
@@ -130,4 +129,19 @@ export function validateQRCode(data: { title?: string; productId?: string; desti
   }
 
   return null;
+}
+
+export function updateScanCountById(id: number):boolean{
+  updateScanCount(id);
+  return true;
+}
+async function updateScanCount(id: number){
+  const qrCode:any = await db.qRCode.findFirst({ where: { id } });
+  invariant(qrCode, "Could not find QR code destination");
+
+  await db.qRCode.update({
+      where: { id },
+      data: { scans: { increment: 1 } },
+  });
+
 }

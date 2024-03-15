@@ -4,7 +4,7 @@ import { json } from "@remix-run/node";
 import { useLoaderData, useNavigate } from "@remix-run/react";
 
 import db from "../db.server";
-import { getQRCodeImage } from "../models/QRCode.server";
+import { getQRCodeImage, updateScanCountById } from "../models/QRCode.server";
 
 export const loader = async ({ params }:any) => {
     console.log(params);
@@ -16,7 +16,7 @@ export const loader = async ({ params }:any) => {
     if(qrCode == null){
         return {};    
     }
-    
+    updateScanCountById(qrCode.id);
     return json({
         title: qrCode.title,
         image: await getQRCodeImage(id),

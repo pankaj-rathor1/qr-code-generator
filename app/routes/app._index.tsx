@@ -59,6 +59,7 @@ const QRTable = ({qrCodes}:any) => (
       { title: "Product" },
       { title: "Date created" },
       { title: "Scans" },
+      { title: "View code" },
     ]}
     selectable={false}
   >
@@ -99,6 +100,9 @@ const QRTableRow = ({ qrCode }:any) => (
       {new Date(qrCode.createdAt).toDateString()}
     </IndexTable.Cell>
     <IndexTable.Cell>{qrCode.scans}</IndexTable.Cell>
+    <IndexTable.Cell>
+      <Link to={`qrcode/${qrCode.id}`}>View</Link>
+    </IndexTable.Cell>
   </IndexTable.Row>
 );
 
@@ -106,26 +110,6 @@ export default function Index() {
   const { qrCodes } : any = useLoaderData();
   // console.log(qrCodes);
   const navigate = useNavigate();
-  // const qrCodes = [
-  //   {
-  //     id:1,
-  //     productImage:'',
-  //     productTitle:'testse',
-  //     title:'tedsrfdsf',
-  //     productDeleted:0,
-  //     createdAt:'17-01-2023',
-  //     scans:'2',
-  //   },
-  //   {
-  //     id:2,
-  //     productImage:'',
-  //     productTitle:'testse',
-  //     title:'tedsrfdsf',
-  //     productDeleted:0,
-  //     createdAt:'17-01-2023',
-  //     scans:'2',
-  //   }
-  // ];
 
   return (
     <Page>
