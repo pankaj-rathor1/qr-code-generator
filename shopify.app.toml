@@ -2,7 +2,7 @@
 
 client_id = "08cf4da352007849224a6eaca315b4b9"
 name = "qr-code-generator"
-application_url = "https://job-hanging-modeling-insights.trycloudflare.com"
+application_url = "https://player-uploaded-complications-classic.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://job-hanging-modeling-insights.trycloudflare.com/auth/callback",
-  "https://job-hanging-modeling-insights.trycloudflare.com/auth/shopify/callback",
-  "https://job-hanging-modeling-insights.trycloudflare.com/api/auth/callback"
+  "https://player-uploaded-complications-classic.trycloudflare.com/auth/callback",
+  "https://player-uploaded-complications-classic.trycloudflare.com/auth/shopify/callback",
+  "https://player-uploaded-complications-classic.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
